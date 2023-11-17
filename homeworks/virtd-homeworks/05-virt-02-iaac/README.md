@@ -70,3 +70,4 @@ Error: The requested URL returned error: 404:
 Важно!: Если ваша хостовая рабочая станция - это windows ОС, то у вас могут возникнуть проблемы со вложенной виртуализацией.  [способы решения](https://www.comss.ru/page.php?id=7726)  . Если вы устанавливали hyper-v или docker desktop то  все равно может возникать ошибка: Stderr: VBoxManage: error: AMD-V VT-X is not available (VERR_SVM_NO_SVM) . Попробуйте в этом случае выполнить в windows от администратора команду: "bcdedit /set hypervisorlaunchtype off" и перезагрузиться
 
 ***Приложите скриншоты в качестве решения на эту задачу. Допускается неполное выполнение данного задания если не сможете совладать с Windows.*** 
+![image](https://github.com/buxrar/devops-netology/blob/main/homeworks/virtd-homeworks/05-virt-02-iaac/Screenshot%20from%202023-11-17%2023-23-33.png?raw=true)
