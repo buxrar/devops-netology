@@ -1,0 +1,12 @@
+Log created: 2023-11-19T04:12:42.467873000Z
+Process ID:  712082 (0xadd92)
+Parent PID:  5108 (0x13f4)
+Executable:  /usr/lib/virtualbox/VBoxHeadless
+Arg[0]: /usr/lib/virtualbox/VBoxHeadless
+Arg[1]: --comment
+Arg[2]: server1.netology
+Arg[3]: --startvm
+Arg[4]: 3e461088-eac0-407b-a5a7-718ce09b0241
+Arg[5]: --vrde
+Arg[6]: config
+AddRef: illegal refcnt=3221225469 state=2
