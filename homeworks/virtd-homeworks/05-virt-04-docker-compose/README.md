@@ -21,12 +21,7 @@
 ```
 data.template_file.instance_userdata: Reading...
 data.template_file.instance_userdata: Read complete after 0s [id=dbdb08b279f4603b7f6d8bc55691bc53cc1f0f441dc5f36ed54859fa3e058e48]
-yandex_compute_instance.worker[2]: Refreshing state... [id=fhm978a2dhc76rffd3b7]
-yandex_compute_instance.worker[0]: Refreshing state... [id=fhms7e3co6kfa8uj83o9]
-yandex_compute_instance.manager[0]: Refreshing state... [id=fhmfhng90tt4eeq4447f]
-yandex_compute_instance.manager[1]: Refreshing state... [id=fhm77k5ntb725kcjk1cb]
-yandex_compute_instance.worker[1]: Refreshing state... [id=fhmfmnbrmdv8r0hcknqo]
-yandex_compute_instance.manager[2]: Refreshing state... [id=fhmgfi6ccu0jnei7d9u8]
+yandex_compute_instance.manager[0]: Refreshing state... [id=fhmccb85l80sglnvg85n]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -124,10 +119,12 @@ yandex_compute_instance.manager[0]: Still creating... [30s elapsed]
 yandex_compute_instance.manager[0]: Still creating... [40s elapsed]
 yandex_compute_instance.manager[0]: Still creating... [50s elapsed]
 yandex_compute_instance.manager[0]: Still creating... [1m0s elapsed]
-yandex_compute_instance.manager[0]: Creation complete after 1m6s [id=fhmccb85l80sglnvg85n]
+yandex_compute_instance.manager[0]: Creation complete after 1m5s [id=fhmjacb7n3k85c3jfh4j]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
+![image](assets/scr4.png)
+
 ## Задача 3
 
 С помощью Ansible и Docker Compose разверните на виртуальной машине из предыдущего задания систему мониторинга на основе Prometheus/Grafana.
@@ -147,6 +144,7 @@ e9b3b74695c2   prom/prometheus:v2.17.1            "/bin/prometheus --c…"   16 
 6cc62cb7db88   stefanprodan/caddy                 "/sbin/tini -- caddy…"   16 seconds ago   Up 3 seconds                      0.0.0.0:3000->3000/tcp, 0.0.0.0:9090-9091->9090-9091/tcp, 0.0.0.0:9093->9093/tcp   caddy
 
 ```
+
 
 ## Задача 4
 
