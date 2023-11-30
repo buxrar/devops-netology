@@ -107,39 +107,35 @@ shekeriev.
 В качестве ответа приложите plan для создаваемого ресурса и скриншот созданного в VB ресурса. 
 
 ```
-terraform {
-  required_providers {
-    virtualbox = {
-      source = "shekeriev/virtualbox"
-      version = "0.0.4"
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # virtualbox_vm.node1 will be created
+  + resource "virtualbox_vm" "node1" {
+      + cpus   = 1
+      + id     = (known after apply)
+      + image  = "https://app.vagrantup.com/shekeriev/boxes/debian-11/versions/0.2/providers/virtualbox.box"
+      + memory = "512 mib"
+      + name   = "debian-11"
+      + status = "running"
+
+      + network_adapter {
+          + device                 = "IntelPro1000MTDesktop"
+          + host_interface         = "vboxnet1"
+          + ipv4_address           = (known after apply)
+          + ipv4_address_available = (known after apply)
+          + mac_address            = (known after apply)
+          + status                 = (known after apply)
+          + type                   = "hostonly"
+        }
     }
-  }
-}
 
-provider "virtualbox" {
-  delay      = 60
-  mintimeout = 5
-}
+Plan: 1 to add, 0 to change, 0 to destroy.
 
-resource "virtualbox_vm" "node1" {
-  name   = "debian-11"
-  image  = "https://app.vagrantup.com/shekeriev/boxes/debian-11/versions/0.2/providers/virtualbox.box"
-  cpus      = 1
-  memory    = "512 mib"
-  user_data = file("/home/oleg/git/ter-homeworks/01/src2/user_data2")
-
-  network_adapter {
-    type           = "hostonly"
-    device         = "IntelPro1000MTDesktop"
-    host_interface = "vboxnet1"
-    # On Windows use this instead
-    # host_interface = "VirtualBox Host-Only Ethernet Adapter"
-  }
-}
-
-output "IPAddress" {
-  value = element(virtualbox_vm.node1.*.network_adapter.0.ipv4_address, 1)
-}
+Changes to Outputs:
+  + IPAddress = (known after apply)
 ```
 
 ![image](img/scr1.png)
