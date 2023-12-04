@@ -39,3 +39,52 @@ variable "vms_ssh_root_key" {
   default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzuXvGEstWnn3ZVSGYuG7tvaUY4Bz3SN8gxogxL1DAS"
   description = "ssh-keygen -t ed25519"
 }
+
+###custom vars
+
+variable "vm_web_image_family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description = "yandex compute image family"
+}
+
+variable "vm_web_resource" {
+  type = map(string)
+  default = {
+      name = "netology-develop-platform-web"
+      platform_id = "standard-v1"
+    }
+  description = "yandex compute instance vars"
+}
+
+variable "vm_default_resources" {
+  type = map(map(number))
+  default = {
+      web_resources = {
+        cores = 2
+        memory = 1
+        core_fraction = 5
+      }
+      db_resources = {
+        cores = 2
+        memory = 2
+        core_fraction = 20
+      }
+    }
+  description = "yandex compute instance resources"
+}
+
+variable "vm_ssh_conf" {
+  type = map(string)
+  default = {
+      serial = "1"
+      ssh_keys = "ubuntu:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDzuXvGEstWnn3ZVSGYuG7tvaUY4Bz3SN8gxogxL1DAS"
+    }
+  description = "yandex compute instance ssh conf"
+}
+
+variable "vm_nat" {
+  type = bool
+  default = true
+  description = "yandex compute instance nat conf"
+}
