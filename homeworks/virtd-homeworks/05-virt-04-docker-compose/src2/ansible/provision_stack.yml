@@ -1,0 +1,19 @@
+---
+
+  - hosts: nodes
+    become: yes
+    become_user: root
+    remote_user: centos
+
+    tasks:
+      - name: Synchronization
+        copy:
+          src: stack/
+          dest: "/opt/stack/"
+          owner: root
+          group: root
+          mode: 0644
+        become: true
+
+      - name: Up all services in compose
+        command: docker stack deploy --compose-file /opt/stack/docker-compose.yaml grafana
