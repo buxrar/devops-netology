@@ -301,45 +301,45 @@ Plan: 4 to add, 0 to change, 0 to destroy.
 ```
 Terraform will perform the following actions:
 
-  # yandex_compute_disk.storage_disks[0] will be created
-  + resource "yandex_compute_disk" "storage_disks" {
+  # yandex_compute_disk.disks[0] will be created
+  + resource "yandex_compute_disk" "disks" {
       + block_size  = 4096
       + created_at  = (known after apply)
       + folder_id   = (known after apply)
       + id          = (known after apply)
-      + name        = "store_hdd-1"
+      + name        = "hdd-1"
       + product_ids = (known after apply)
       + size        = 1
       + status      = (known after apply)
-      + type        = "storage"
+      + type        = "network-hdd"
       + zone        = "ru-central1-a"
     }
 
-  # yandex_compute_disk.storage_disks[1] will be created
-  + resource "yandex_compute_disk" "storage_disks" {
+  # yandex_compute_disk.disks[1] will be created
+  + resource "yandex_compute_disk" "disks" {
       + block_size  = 4096
       + created_at  = (known after apply)
       + folder_id   = (known after apply)
       + id          = (known after apply)
-      + name        = "store_hdd-2"
+      + name        = "hdd-2"
       + product_ids = (known after apply)
       + size        = 1
       + status      = (known after apply)
-      + type        = "storage"
+      + type        = "network-hdd"
       + zone        = "ru-central1-a"
     }
 
-  # yandex_compute_disk.storage_disks[2] will be created
-  + resource "yandex_compute_disk" "storage_disks" {
+  # yandex_compute_disk.disks[2] will be created
+  + resource "yandex_compute_disk" "disks" {
       + block_size  = 4096
       + created_at  = (known after apply)
       + folder_id   = (known after apply)
       + id          = (known after apply)
-      + name        = "store_hdd-3"
+      + name        = "hdd-3"
       + product_ids = (known after apply)
       + size        = 1
       + status      = (known after apply)
-      + type        = "storage"
+      + type        = "network-hdd"
       + zone        = "ru-central1-a"
     }
 

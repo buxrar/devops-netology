@@ -1,4 +1,4 @@
-resource "yandex_compute_disk" "storage_disks" {
+resource "yandex_compute_disk" "disks" {
   name       = format("%s-%01d", var.storage_dataset[0].name, count.index + 1)
   type       = var.storage_dataset[0].type
   zone       = var.storage_dataset[0].zone
@@ -27,7 +27,7 @@ resource "yandex_compute_instance" "storage" {
   }
 
   dynamic "secondary_disk" {
-    for_each = yandex_compute_disk.storage_disks.*.id
+    for_each = yandex_compute_disk.disks.*.id
     content {
         disk_id = secondary_disk.value
     }

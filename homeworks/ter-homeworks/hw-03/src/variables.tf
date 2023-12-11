@@ -112,10 +112,10 @@ variable "storage_dataset" {
   default = [
     {
       id      = 1
-      name    = "store_hdd"
+      name    = "hdd"
       size    = 1
       zone    = "ru-central1-a"
-      type    = "storage"
+      type    = "network-hdd"
       count   = 3
     }
   ] 
