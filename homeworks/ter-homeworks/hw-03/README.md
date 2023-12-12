@@ -450,6 +450,26 @@ storage ansible_host=<внешний ip-адрес> fqdn=<имя виртуал�
 ```
 4. Выполните код. Приложите скриншот получившегося файла. 
 
+#### Ответ:
+```
+[webservers]
+
+web-1   ansible_host=158.160.34.102 fqdn=web-1.ru-central1.internal
+
+web-2   ansible_host=158.160.125.69 fqdn=web-2.ru-central1.internal
+
+[databases]
+
+main   ansible_host=158.160.96.35 fqdn=main.ru-central1.internal
+
+replica   ansible_host=158.160.121.36 fqdn=replica.ru-central1.internal
+
+[storage]
+
+storage   ansible_host=158.160.109.228 fqdn=storage.ru-central1.internal
+```
+
+
 Для общего зачёта создайте в вашем GitHub-репозитории новую ветку terraform-03. Закоммитьте в эту ветку свой финальный код проекта, пришлите ссылку на коммит.   
 **Удалите все созданные ресурсы**.
 

@@ -1,6 +1,7 @@
 data "yandex_compute_image" "ubuntu" {
   family = var.vm_web_image_family
 }
+
 resource "yandex_compute_instance" "web" {
   count = 2
 
