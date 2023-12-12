@@ -500,6 +500,36 @@ storage   ansible_host=158.160.109.228 fqdn=storage.ru-central1.internal
 ```
 Приложите скриншот вывода команды ```terrafrom output```.
 
+#### Ответ:
+```
+inventary = [
+  {
+    "fqdn" = "web-1.ru-central1.internal"
+    "id" = "fhmtvc636lnfo9l1ojli"
+    "name" = "web-1"
+  },
+  {
+    "fqdn" = "web-2.ru-central1.internal"
+    "id" = "fhmue6e2o74a61cjjq7c"
+    "name" = "web-2"
+  },
+  {
+    "fqdn" = "main.ru-central1.internal"
+    "id" = "fhm3hks5agq8cit9cl6i"
+    "name" = "main"
+  },
+  {
+    "fqdn" = "replica.ru-central1.internal"
+    "id" = "fhmmhq8tsrloo31ev6ti"
+    "name" = "replica"
+  },
+  {
+    "fqdn" = "storage.ru-central1.internal"
+    "id" = "fhmsmcr6o2mf81je425v"
+    "name" = "storage"
+  },
+]
+```
 ------
 
 ### Задание 6* (необязательное)
