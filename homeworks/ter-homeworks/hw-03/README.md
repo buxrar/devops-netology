@@ -541,6 +541,22 @@ inventary = [
 Для проверки работы уберите у ВМ внешние адреса(nat=false). Этот вариант используется при работе через bastion-сервер.
 Для зачёта предоставьте код вместе с основной частью задания.
 
+```
+[storage]
+
+%{~ for i in storage ~}
+
+${i["name"]}   ansible_host=${i["network_interface"][0]["nat"] == true ? i["network_interface"][0]["nat_ip_address"]:i["network_interface"][0]["ip_address"]} fqdn=${i["fqdn"]}
+
+%{~ endfor ~}
+```
+
+```
+[storage]
+
+storage   ansible_host=10.0.1.13 fqdn=storage.ru-central1.internal
+```
+
 ### Правила приёма работы
 
 В своём git-репозитории создайте новую ветку terraform-03, закоммитьте в эту ветку свой финальный код проекта. Ответы на задания и необходимые скриншоты оформите в md-файле в ветке terraform-03.
