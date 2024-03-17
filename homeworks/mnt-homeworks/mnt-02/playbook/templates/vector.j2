@@ -1,0 +1,34 @@
+
+sources:
+  dummy_logs:
+    type: "demo_logs"
+    format: "syslog"
+    interval: 1
+  yum_logs:
+    type: "file"
+    include: 
+      - "/var/log/yum.log"
+    read_from: "end"
+
+transforms:
+  parse_logs:
+    type: "remap"
+    inputs: ["dummy_logs"]
+    source: |
+      . = parse_syslog!(string!(.message))
+
+sinks:
+  print:
+    type: "console"
+    inputs: ["parse_logs"]
+    encoding:
+      codec: "json"
+  clickhouse:
+    type: "clickhouse"
+    inputs:
+      - "parse_logs"
+      - "yum_logs"
+    endpoint: "http://{{clickhouse_address}}:8123"
+    database: "logs"
+    table: "logtable"
+    skip_unknown_fields: true
