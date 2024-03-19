@@ -1,0 +1,16 @@
+---
+  - src: https://github.com/buxrar/devops-netology.git
+    scm: git
+    version: clickhouse-role
+    name: clickhouse 
+
+  - src: https://github.com/buxrar/devops-netology.git
+    scm: git
+    version: vector-role
+    name: vector 
+
+  - src: https://github.com/buxrar/devops-netology.git
+    scm: git
+    version: lighthouse-role
+    name: lighthouse
+ 
