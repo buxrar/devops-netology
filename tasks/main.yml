@@ -5,12 +5,10 @@
     dest: ./vector-0.35.0-1.x86_64.rpm
 
 - name: Install vector
-  become: true
   ansible.builtin.yum:
     name: vector-0.35.0-1.x86_64.rpm
 
 - name: Copy vector config
-  become: true
   ansible.builtin.template:
     src: templates/vector.j2
     dest: /etc/vector/vector.yaml
