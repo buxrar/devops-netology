@@ -11,7 +11,6 @@
         url: "https://packages.clickhouse.com/rpm/stable/clickhouse-common-static-{{ clickhouse_version }}.x86_64.rpm"
         dest: "./clickhouse-common-static-{{ clickhouse_version }}.rpm"
 - name: Install clickhouse packages
-  become: true
   ansible.builtin.yum:
     name:
       - clickhouse-common-static-{{ clickhouse_version }}.rpm
@@ -20,7 +19,6 @@
   notify: Start clickhouse service
 
 - name: Copy clickhouse config
-  become: true
   ansible.builtin.template:
     src: templates/clickhouse.j2
     dest: /etc/clickhouse-server/config.xml
@@ -32,7 +30,6 @@
   ansible.builtin.pause:
     seconds: 6
 - name: Create database
-  become: true
   ansible.builtin.command: "clickhouse-client -h {{ clickhouse_address }} -q 'CREATE TABLE IF NOT EXISTS  logs.syslogs (message String) ENGINE = MergeTree() ORDER BY tuple()'"
   register: create_db
   failed_when: create_db.rc != 0 and create_db.rc !=82
