@@ -1,0 +1,6 @@
+---
+- name: Test module
+  hosts: localhost
+  gather_facts: false
+  roles: 
+    - test_module
