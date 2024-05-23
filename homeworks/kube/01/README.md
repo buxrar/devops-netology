@@ -128,6 +128,7 @@ root@microk8s:~# microk8s kubectl port-forward -n kube-system service/kubernetes
 Forwarding from 0.0.0.0:10443 -> 8443
 ```
 ![image](img/img2.png)
+![image](img/img3.png)
 ------
 
 ### Правила приёма работы
