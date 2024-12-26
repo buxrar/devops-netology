@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: multitool-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: multitool
+  template:
+    metadata:
+      labels:
+        app: multitool
+    spec:
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool
+          command: ["sh", "-c", "tail -F /var/log/cloud-init.log"]
+          volumeMounts:
+            - name: syslog-volume
+              mountPath: /var/log
+
+      volumes:
+        - name: syslog-volume
+          hostPath:
+            path: /var/log

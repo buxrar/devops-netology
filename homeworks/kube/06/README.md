@@ -34,6 +34,24 @@
 4. Продемонстрировать, что multitool может читать файл, который периодоически обновляется.
 5. Предоставить манифесты Deployment в решении, а также скриншоты или вывод команды из п. 4.
 
+### Ответ
+
+```
+oleg@MacBook-Air-oleg 06 % kubectl apply -f deployment.yaml -n hw
+deployment.apps/busybox-multitool-deployment created
+oleg@MacBook-Air-oleg 06 % kubectl get pods -n hw
+NAME                                            READY   STATUS    RESTARTS   AGE
+busybox-multitool-deployment-6ff69867cf-xw52z   2/2     Running   0          22s
+oleg@MacBook-Air-oleg 06 % kubectl logs -f deployment/busybox-multitool-deployment -c multitool -n hw
+Thu Dec 26 20:13:43 UTC 2024
+Thu Dec 26 20:13:43 UTC 2024
+Thu Dec 26 20:13:48 UTC 2024
+Thu Dec 26 20:13:43 UTC 2024
+Thu Dec 26 20:13:48 UTC 2024
+Thu Dec 26 20:13:53 UTC 2024
+Thu Dec 26 20:13:43 UTC 2024
+Thu Dec 26 20:13:48 UTC 2024
+```
 ------
 
 ### Задание 2
@@ -46,6 +64,25 @@
 2. Обеспечить возможность чтения файла `/var/log/syslog` кластера MicroK8S.
 3. Продемонстрировать возможность чтения файла изнутри пода.
 4. Предоставить манифесты Deployment, а также скриншоты или вывод команды из п. 2.
+
+### Ответ 
+syslog у меня отключен, так как развернуто в lxc контейнере, на примере другого лога
+
+```
+oleg@MacBook-Air-oleg 06 % kubectl apply -f daemonset.yaml -n hw2                                       
+daemonset.apps/multitool-daemonset configured
+oleg@MacBook-Air-oleg 06 % kubectl logs -f daemonset/multitool-daemonset -n hw2
+2024-12-23 19:02:41,795 - main.py[DEBUG]: Ran 10 modules with 0 failures
+2024-12-23 19:02:41,796 - util.py[DEBUG]: Reading from /proc/uptime (quiet=False)
+2024-12-23 19:02:41,796 - util.py[DEBUG]: Read 12 bytes from /proc/uptime
+2024-12-23 19:02:41,796 - atomic_helper.py[DEBUG]: Atomically writing to file /var/lib/cloud/data/status.json (via temporary file /var/lib/cloud/data/tmpq0ogpt9i) - w: [644] 497 bytes/chars
+2024-12-23 19:02:41,796 - atomic_helper.py[DEBUG]: Atomically writing to file /var/lib/cloud/data/result.json (via temporary file /var/lib/cloud/data/tmp3ft_s9mg) - w: [644] 65 bytes/chars
+2024-12-23 19:02:41,796 - util.py[DEBUG]: Creating symbolic link from '/run/cloud-init/result.json' => '../../var/lib/cloud/data/result.json'
+2024-12-23 19:02:41,796 - util.py[DEBUG]: Reading from /proc/uptime (quiet=False)
+2024-12-23 19:02:41,796 - util.py[DEBUG]: Read 12 bytes from /proc/uptime
+2024-12-23 19:02:41,796 - util.py[DEBUG]: cloud-init mode 'modules' took 0.122 seconds (0.12)
+2024-12-23 19:02:41,796 - handlers.py[DEBUG]: finish: modules-final: SUCCESS: running modules for final
+```
 
 ------
 
