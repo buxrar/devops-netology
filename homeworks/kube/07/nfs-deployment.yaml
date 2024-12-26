@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multitool-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: multitool
+  template:
+    metadata:
+      labels:
+        app: multitool
+    spec:
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool
+          command: ["echo", "Hello", "> /mnt/data/output.txt || sleep 3000"]
+          volumeMounts:
+            - name: nfs-storage
+              mountPath: /mnt/data
+      volumes:
+        - name: nfs-storage
+          persistentVolumeClaim:
+            claimName: nfs-pvc
