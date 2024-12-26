@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-html-config
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>My Secure Page</title>
+      </head>
+      <body>
+        <h1>Hello, Secure World!</h1>
+        <p>This page is served over HTTPS.</p>
+      </body>
+    </html>

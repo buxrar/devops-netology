@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-html-config
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>My Simple Page</title>
+      </head>
+      <body>
+        <h1>Hello, World!</h1>
+        <p>This is a simple web page served by Nginx.</p>
+      </body>
+    </html>
